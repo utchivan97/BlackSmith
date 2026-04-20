@@ -1,0 +1,424 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('img/fondo1.png') no-repeat center;
+  background-size: cover;
+  filter: brightness(0.5);
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #ffb347;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+ul {
+  list-style: none;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  background: rgba(42, 27, 14, 0.8);
+  padding: 20px;
+  border: 2px solid #ffb347;
+  border-radius: 10px;
+}
+
+ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 179, 71, 0.2);
+  font-size: 1.1rem;
+}
+
+ul li::before {
+  content: "⚒️ ";
+  margin-right: 10px;
+}
+
+.card {
+  background: rgba(42, 27, 14, 0.9);
+  border: 3px solid #ffb347;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.card h3 {
+  color: #ffb347;
+  margin-bottom: 8px;
+}
+
+.logo img {
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 25px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.menu button, .back {
+  background: #5c3b1e;
+  color: #fff;
+  border: 2px solid #ffb347;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.menu button {
+  width: 300px;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+.menu button:hover, .back:hover {
+  background: #8b5a2b;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb347;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+}
+
+.historia-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.card-papiro {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding: 100px 120px; 
+  background-image: url('img/papiro_antiguo.png');
+  background-size: 100% 100%; 
+  background-repeat: no-repeat;
+  color: #3d2b19;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.card-papiro p {
+  font-size: 1.15rem;
+  color: #3d2b19 !important;
+  text-shadow: none !important;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-width: 90%; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inventory-panel {
+  display: flex;
+  gap: 20px;
+  background: rgba(42, 27, 14, 0.9); 
+  border: 4px solid #ffb347; 
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 20px;
+  min-height: 450px;
+  text-align: left;
+}
+
+.inventory-tabs {
+  display: flex;
+  flex-direction: column; 
+  gap: 12px;
+  width: 180px;
+}
+
+.tab-btn {
+  padding: 15px 10px;
+  font-size: 14px;
+  background: #5c3b1e;
+  color: #ffb347;
+  border: 2px solid #8b5a2b;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-btn.active {
+  background: #ffb347;
+  color: #3d2b19;
+  border-color: #fff;
+}
+
+.inventory-grid {
+  flex: 1; 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+  grid-auto-rows: 85px;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  border: 2px solid #3d2b19;
+  overflow-y: auto;
+}
+
+.inventory-item-icon {
+  width: 100%;
+  height: 100%;
+  background: #1a1008;
+  border: 2px solid #8b5a2b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  transition: 0.2s;
+}
+
+.inventory-item-icon:hover {
+  border-color: #ffb347;
+}
+
+.inventory-item-icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-image: url('img/papiro_antiguo.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 850px; 
+  min-height: 550px;
+  padding: 90px 110px; 
+  position: relative;
+  color: #3d2b19;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-modal {
+  position: absolute;
+  top: 50px; right: 70px;
+  font-size: 45px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #3d2b19;
+  z-index: 10;
+}
+
+.modal-item-title {
+  font-size: 2.2rem !important;
+  color: #2a1b0e !important;
+  font-weight: 900;
+  margin-bottom: 15px;
+  border-bottom: 3px solid rgba(61, 43, 25, 0.4);
+  text-align: center;
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+}
+
+.modal-item-info {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.modal-item-info img {
+  width: 180px; 
+  height: 180px;
+  object-fit: contain;
+  background: rgba(255, 252, 235, 0.5);
+  border: 4px solid #5c3b1e;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 15px;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
+.modal-item-info-text p {
+  font-size: 1.2rem !important;
+  color: #3d2b19 !important;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  font-style: italic;      
+  background: rgba(255, 255, 255, 0.2); 
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.modal-item-info-text p {
+  font-size: 1.3rem !important;
+  color: #3d2b19 !important;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  text-shadow: none !important;
+}
+
+.modal-item-stats {
+  list-style: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-body p, .stats-container span {
+    color: #2c1b0e;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3); 
+    font-size: 1.1rem;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: 1px dotted rgba(0,0,0,0.2);
+}
+
+.modal-item-stats li {
+  font-size: 1.1rem;
+  color: #3d2b19;
+  border-bottom: 1px solid rgba(61, 43, 25, 0.2);
+  background: rgba(61, 43, 25, 0.05);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+.stat-label {
+  font-weight: bold;
+  color: #5c3b1e;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.modal-item-stats li span:last-child {
+  font-weight: bold;
+  color: #000;
+}
+
+.mapa-img {
+  width: 100%;
+  height: 200px;    
+  object-fit: cover; 
+  border-radius: 8px;
+  border: 2px solid #8b5a2b; 
+  margin-top: 15px;
+  display: block;
+  image-rendering: pixelated;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover .mapa-img {
+  transform: scale(1.02);
+  border-color: #ffb347;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .modal-content {
+    width: 95%;
+    padding: 60px 40px;
+    min-height: auto;
+  }
+  .modal-item-info {
+    flex-direction: column;
+  }
+  .inventory-panel {
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .card-papiro {
+    padding: 60px 40px; 
+    background-size: cover;
+  }
+  
+  .card-papiro p {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+}

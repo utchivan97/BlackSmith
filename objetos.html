@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario - Blacksmith</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+<div class="background"></div>
+
+<div class="container inventory-page">
+    <a href="index.html" class="back">← Volver</a>
+    <h1>Inventario</h1>
+
+    <div class="inventory-panel">
+        
+        <div class="inventory-tabs">
+            <button class="tab-btn active" data-category="weapon">Armas</button>
+            <button class="tab-btn" data-category="armor">Armaduras</button>
+            <button class="tab-btn" data-category="potion">Pociones</button>
+            <button class="tab-btn" data-category="resource">Recursos</button>
+        </div>
+
+        <div class="inventory-grid" id="inventoryGrid">
+            </div>
+
+    </div>
+</div>
+
+<div class="modal-overlay" id="itemModal">
+    <div class="modal-content">
+        <button class="close-modal" id="closeModal">&times;</button>
+        <div class="modal-body">
+            </div>
+    </div>
+</div>
+
+<script src="/scripts/inventory.js"></script>
+
+</body>
+</html>
